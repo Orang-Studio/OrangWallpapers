@@ -1,0 +1,29 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+VisualStudioVersion = 17.14.37111.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrangWallpapers", "OrangWallpapers.csproj", "{8C76AD1F-BF1A-4AE0-A394-46E7A3504B67}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8C76AD1F-BF1A-4AE0-A394-46E7A3504B67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C76AD1F-BF1A-4AE0-A394-46E7A3504B67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C76AD1F-BF1A-4AE0-A394-46E7A3504B67}.Debug|x86.ActiveCfg = Debug|x86
+		{8C76AD1F-BF1A-4AE0-A394-46E7A3504B67}.Debug|x86.Build.0 = Debug|x86
+		{8C76AD1F-BF1A-4AE0-A394-46E7A3504B67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C76AD1F-BF1A-4AE0-A394-46E7A3504B67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C76AD1F-BF1A-4AE0-A394-46E7A3504B67}.Release|x86.ActiveCfg = Release|x86
+		{8C76AD1F-BF1A-4AE0-A394-46E7A3504B67}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F3E6261C-FDF5-4D33-A5E8-AC8653F7777F}
+	EndGlobalSection
+EndGlobal

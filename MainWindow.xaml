@@ -1,0 +1,106 @@
+﻿<Window x:Class="OrangWallpapers.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="OrangWallpapers Changer" Height="370" Width="250"
+        WindowStartupLocation="CenterScreen"
+        Icon="orange.ico"
+        Background="{DynamicResource WindowBackground}"
+        Foreground="{DynamicResource WindowText}">
+    <Window.Resources>
+        <SolidColorBrush x:Key="WindowBackground" Color="#1E1E1E" />
+        <SolidColorBrush x:Key="WindowText" Color="White" />
+        <SolidColorBrush x:Key="InputBackground" Color="#333333" />
+        <SolidColorBrush x:Key="InputText" Color="White" />
+        <SolidColorBrush x:Key="ButtonColor" Color="Orange" />
+        <SolidColorBrush x:Key="ButtonHover" Color="DarkOrange" />
+        <Style TargetType="ComboBox">
+            <Setter Property="Background" Value="{DynamicResource InputBackground}" />
+            <Setter Property="Foreground" Value="{DynamicResource InputText}" />
+            <Setter Property="BorderBrush" Value="#555" />
+            <Setter Property="Padding" Value="4" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBox">
+                        <Grid>
+                            <Border x:Name="Bd" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" Padding="0">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="30" />
+                                    </Grid.ColumnDefinitions>
+                                    <ToggleButton x:Name="MainToggleButton"
+                                                  Grid.Column="0"
+                                                  Background="Transparent"
+                                                  BorderThickness="0"
+                                                  Focusable="False"
+                                                  IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                                  />
+                                    <ContentPresenter x:Name="ContentSite"
+                                                      Grid.Column="0"
+                                                      Margin="6,0,6,0"
+                                                      VerticalAlignment="Center"
+                                                      Content="{TemplateBinding SelectionBoxItem}"
+                                                      ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                                                      ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                                                      RecognizesAccessKey="True"/>
+                                    <ToggleButton Grid.Column="1" x:Name="ToggleButton" Focusable="false" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Background="{TemplateBinding Background}" BorderThickness="0">
+                                        <Path HorizontalAlignment="Center" VerticalAlignment="Center" Fill="{TemplateBinding Foreground}" Data="M 0 0 L 4 4 L 8 0 Z" Width="8" Height="4" />
+                                    </ToggleButton>
+                                </Grid>
+                            </Border>
+                            <Popup Name="Popup" Placement="Bottom" IsOpen="{TemplateBinding IsDropDownOpen}" AllowsTransparency="True" Focusable="False" PopupAnimation="Slide">
+                                <Grid Name="DropDown" SnapsToDevicePixels="True">
+                                    <Border x:Name="DropDownBorder" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1">
+                                        <ScrollViewer Margin="0" SnapsToDevicePixels="True">
+                                            <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" />
+                                        </ScrollViewer>
+                                    </Border>
+                                </Grid>
+                            </Popup>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="HasItems" Value="false">
+                                <Setter TargetName="DropDownBorder" Property="MinHeight" Value="95" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="#888" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Resources>
+                <SolidColorBrush x:Key="{x:Static SystemColors.WindowBrushKey}" Color="#333333" />
+                <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="#333333" />
+            </Style.Resources>
+        </Style>
+        <Style TargetType="ComboBoxItem">
+            <Setter Property="Background" Value="{DynamicResource InputBackground}" />
+            <Setter Property="Foreground" Value="{DynamicResource InputText}" />
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            <Setter Property="Padding" Value="4" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#444444" />
+                </Trigger>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Background" Value="#555555" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <StackPanel Margin="20">
+        <TextBlock Text="Enter Wallpaper URL:" Margin="0,5" />
+        <TextBox x:Name="UrlTextBox" Height="25" Margin="0,5" Background="{DynamicResource InputBackground}" Foreground="{DynamicResource InputText}" BorderBrush="#555" />
+        <Button Content="Change Wallpaper" Click="ChangeFromUrl_Click" Background="{StaticResource ButtonColor}" Foreground="White" Height="30" Margin="0,5" />
+        <Button Content="Select Local Wallpaper" Click="SelectLocal_Click" Background="{StaticResource ButtonColor}" Foreground="White" Height="30" Margin="0,15,0,5" />
+        <TextBlock Text="Select a Predefined Wallpaper:" Margin="0,15,0,5" />
+        <ComboBox x:Name="PredefinedComboBox" Height="30" Margin="0,5" SelectionChanged="PredefinedCombo_SelectionChanged" Background="{DynamicResource InputBackground}" Foreground="{DynamicResource InputText}" />
+        <TextBlock Text="Windows / App Theme:" Margin="0,15,0,5" TextAlignment="Center" />
+        <StackPanel Orientation="Horizontal" Margin="0,5" HorizontalAlignment="Center">
+            <RadioButton x:Name="ThemeLightRadio" Content="Light" GroupName="Theme" Checked="Theme_Checked" Margin="0,0,15,0" Foreground="{DynamicResource WindowText}" />
+            <RadioButton x:Name="ThemeDarkRadio" Content="Dark" GroupName="Theme" Checked="Theme_Checked" Foreground="{DynamicResource WindowText}" />
+        </StackPanel>
+        <TextBlock x:Name="StatusText" Text="" Margin="0,15" TextAlignment="Center" FontWeight="Bold" Foreground="{DynamicResource WindowText}" />
+    </StackPanel>
+</Window>
