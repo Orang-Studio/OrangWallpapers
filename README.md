@@ -5,4 +5,5 @@
 ## Download / [Link](https://github.com/InterJavas-Projects/OrangWallpapers/releases/download/3.0/OrangWallpapers.exe)
 
 
-![Screenshot 2024-12-22 220502](https://github.com/user-attachments/assets/f53e8682-bfae-4319-ba66-2ec81cbe0533)
+<img width="250" height="370" alt="image" src="https://github.com/user-attachments/assets/c5a99d8b-e14c-47fc-9b3f-f41b8e0a564c" />
+
