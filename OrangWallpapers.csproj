@@ -7,6 +7,9 @@
     <UseWPF>true</UseWPF>
     <Platforms>AnyCPU;x86</Platforms>
 	<ApplicationIcon>orange.ico</ApplicationIcon>
+    <Version>$([System.Text.RegularExpressions.Regex]::Match($([System.IO.File]::ReadAllText('$(MSBuildProjectDirectory)/AppInfo.cs')), 'VERSION = "v([^"]+)"').Groups[1].Value)</Version>
+    <Company>OrangStudio</Company>
+    <Product>OrangWallpapers</Product>
   </PropertyGroup>
   <ItemGroup>
     <Resource Include="orange.ico" />
