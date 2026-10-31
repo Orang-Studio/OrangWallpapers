@@ -3,7 +3,10 @@
 A smol Windows app for changing your desktop wallpaper, from a URL, a local file, or a built-in collection.
 This bypasses need for Windows activation, because microsoft blocks customization until activated.
 
-<img width="250" alt="OrangWallpapers screenshot" src="https://github.com/user-attachments/assets/c5a99d8b-e14c-47fc-9b3f-f41b8e0a564c" />
+<img width="280" height="590" alt="{171CA331-97C5-4953-928D-C09FB1F5C9E4}" src="https://github.com/user-attachments/assets/1990c0ea-daa3-48c6-971a-47eebc1e00ee" />
+
+
+
 
 ## Download
 
